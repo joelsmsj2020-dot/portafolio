@@ -15,14 +15,43 @@ h1,h2,p{margin-top:0}h1,h2{line-height:.9;letter-spacing:-.075em;text-wrap:balan
 .film{position:relative;aspect-ratio:16/9;background:#202522;color:var(--paper);overflow:hidden;display:grid;place-items:center}.film img,.film iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}.film img{z-index:1}.film iframe{display:none;z-index:2}.film.playing iframe{display:block}.film strong{font-size:clamp(2rem,8vw,7rem);letter-spacing:-.06em}.film button{position:absolute;z-index:3;bottom:1rem;left:1rem;padding:.5rem .8rem}.film.playing button{display:none}
 .contact{padding-block:clamp(4rem,9vw,7rem)}footer{border-top:1px solid #ffffff28;padding-block:1.25rem}footer p{margin:0}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 .contact-links{display:flex;flex-wrap:wrap;gap:.75rem}.contact-links .button:not(:first-child){background:transparent;color:var(--paper);border:1px solid #ffffff50}.contact-links .button:not(:first-child):hover{border-color:var(--lime);color:var(--lime)}
+.intro-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.65fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 6rem);
+  max-width: 90rem;
+  margin-inline: auto;
+}
+.intro-copy h1 {
+  font-size: clamp(3.6rem, 8vw, 8.5rem);
+}
+.intro-portrait {
+  display: block;
+  width: 100%;
+  max-width: 31rem;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 41%;
+  justify-self: center;
+}
+@media (max-width: 48rem) {
+  .intro-inner { grid-template-columns: minmax(0, 1fr); }
+  .intro-portrait { justify-self: start; max-width: 25rem; }
+}
 </style>
 <header><strong>Joel Poveda</strong><nav aria-label="Navegación principal"><a href="#proyectos">Proyectos</a><a href="#contacto">Contacto</a></nav></header>
 <main>
 <section class="intro" aria-labelledby="nombre">
+<div class="intro-inner">
+<div class="intro-copy">
 <p class="eyebrow">Editor de video y productor digital · Panamá</p>
 <h1 id="nombre">Joel Poveda</h1>
 <p class="lead">Trabajo en edición de video y comunicación digital. Ayudo a profesionales y marcas a convertir el material que ya grabaron en piezas claras y listas para publicar.</p>
 <a class="button" href="#proyectos">Ver proyectos</a>
+</div>
+<img class="intro-portrait" src="./joel-poveda.png" alt="Retrato en blanco y negro de Joel Poveda" fetchpriority="high">
+</div>
 </section>
 <section class="work" id="proyectos">
 <h2>Proyectos seleccionados</h2>
