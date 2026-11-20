@@ -39,6 +39,8 @@ h1,h2,p{margin-top:0}h1,h2{line-height:.9;letter-spacing:-.075em;text-wrap:balan
   .intro-inner { grid-template-columns: minmax(0, 1fr); }
   .intro-portrait { justify-self: start; max-width: 25rem; }
 }
+.film { max-width: 68rem; }
+.film img { object-fit: cover; }
 </style>
 <header><strong>Joel Poveda</strong><nav aria-label="Navegación principal"><a href="#proyectos">Proyectos</a><a href="#contacto">Contacto</a></nav></header>
 <main>
@@ -55,7 +57,19 @@ h1,h2,p{margin-top:0}h1,h2{line-height:.9;letter-spacing:-.075em;text-wrap:balan
 </section>
 <section class="work" id="proyectos">
 <h2>Proyectos seleccionados</h2>
-<p>Próximamente compartiré aquí una selección de mis proyectos de edición y producción digital.</p>
+<article>
+  <div class="project-info">
+    <div>
+      <h3>Nancito</h3>
+      <p>Un recorrido audiovisual por Nancito, contado a través de sus paisajes.</p>
+    </div>
+    <a href="https://youtu.be/wYPWzoifPEU">Ver en YouTube</a>
+  </div>
+  <div class="film" id="nancito-video">
+    <img src="https://i.ytimg.com/vi/wYPWzoifPEU/hqdefault.jpg" alt="" loading="lazy">
+    <button type="button" aria-label="Reproducir Nancito" hidden>Reproducir</button>
+  </div>
+</article>
 </section>
 <section class="contact" id="contacto"><h2>¿Ya tienes material grabado?</h2><p class="lead">Cuéntame qué quieres hacer con él.</p><div class="contact-links">
 <a class="button" href="https://wa.me/50762201069?text=Hola%2C%20Joel.%20Vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto.%20Te%20cuento%20lo%20que%20tengo%20en%20mente%3A">WhatsApp</a>
@@ -64,4 +78,20 @@ h1,h2,p{margin-top:0}h1,h2{line-height:.9;letter-spacing:-.075em;text-wrap:balan
 </div></section>
 </main>
 <footer><p>Joel Poveda · Panamá</p></footer>
+<script>
+const player = document.getElementById('nancito-video');
+const playButton = player.querySelector('button');
+playButton.hidden = false;
+playButton.addEventListener('click', () => {
+  const video = document.createElement('iframe');
+  video.title = 'Nancito en YouTube';
+  video.src = 'https://www.youtube-nocookie.com/embed/wYPWzoifPEU?autoplay=1&playsinline=1';
+  video.allow = 'autoplay; encrypted-media; picture-in-picture';
+  video.allowFullscreen = true;
+  video.referrerPolicy = 'strict-origin-when-cross-origin';
+  player.append(video);
+  player.classList.add('playing');
+  video.focus();
+}, { once: true });
+</script>
 </html>
