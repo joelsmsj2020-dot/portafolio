@@ -11,8 +11,7 @@ header,section,footer{padding-inline:var(--pad)}header{display:flex;justify-cont
 .intro{padding-block:clamp(2.25rem,4.6vw,5.5rem);position:relative;overflow:hidden}.intro::before{content:"";position:absolute;inset:0 auto 0 0;width:.35rem;background:var(--lime)}.eyebrow{font-weight:650;margin:0 0 1.3rem;color:var(--lime)}
 h1,h2,p{margin-top:0}h1,h2{line-height:.9;letter-spacing:-.075em;text-wrap:balance}h1{font-size:clamp(3.7rem,11vw,11rem);margin-bottom:1.6rem}h2{font-size:clamp(2.75rem,8vw,7rem);margin-bottom:1.5rem}.lead{max-width:34rem;font-size:clamp(1.1rem,2.2vw,1.5rem);margin-bottom:2rem}
 .button,button{display:inline-block;background:var(--lime);color:var(--dark);border:0;padding:.85rem 1.2rem;font:inherit;font-weight:750;text-decoration:none;cursor:pointer}.button:hover,button:hover{background:white}
-.work{background:var(--paper);color:var(--dark);color-scheme:light;padding-block:clamp(3rem,8vw,7rem)}.work>h2{font-size:clamp(2.2rem,6vw,5rem)}article{border-top:2px solid;padding-top:1.5rem}.project-info{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:1.4rem}.project-info h3{font-size:clamp(2rem,5vw,4.5rem);letter-spacing:-.06em;line-height:1;margin:0 0 .5rem}.project-info p{margin:0}.project-info a{font-weight:700;text-underline-offset:.25em}
-.film{position:relative;aspect-ratio:16/9;background:#202522;color:var(--paper);overflow:hidden;display:grid;place-items:center}.film img,.film iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}.film img{z-index:1}.film iframe{display:none;z-index:2}.film.playing iframe{display:block}.film strong{font-size:clamp(2rem,8vw,7rem);letter-spacing:-.06em}.film button{position:absolute;z-index:3;bottom:1rem;left:1rem;padding:.5rem .8rem}.film.playing button{display:none}
+.work{background:var(--paper);color:var(--dark);color-scheme:light;padding-block:clamp(3rem,8vw,7rem)}.work>h2{font-size:clamp(2.2rem,6vw,5rem)}article{border-top:2px solid;padding-top:1.5rem}
 .contact{padding-block:clamp(4rem,9vw,7rem)}footer{border-top:1px solid #ffffff28;padding-block:1.25rem}footer p{margin:0}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 .contact-links{display:flex;flex-wrap:wrap;gap:.75rem}.contact-links .button:not(:first-child){background:transparent;color:var(--paper);border:1px solid #ffffff50}.contact-links .button:not(:first-child):hover{border-color:var(--lime);color:var(--lime)}
 .intro-inner {
@@ -39,8 +38,22 @@ h1,h2,p{margin-top:0}h1,h2{line-height:.9;letter-spacing:-.075em;text-wrap:balan
   .intro-inner { grid-template-columns: minmax(0, 1fr); }
   .intro-portrait { justify-self: start; max-width: 25rem; }
 }
-.film { width: 100%; max-width: 60rem; margin-inline: auto; }
-.film img { object-fit: cover; }
+
+.project-group + .project-group { margin-top: 3rem; }
+.project-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:clamp(1rem,2.5vw,2.5rem); }
+.project-card { display:flex; flex-direction:column; align-items:flex-start; min-width:0; }
+.project-card h4 { font-size:1.2rem; line-height:1.2; margin:1rem 0 .5rem; }
+.project-card p { margin-bottom:1rem; }
+.project-card .button { margin-top:auto; padding:.65rem .85rem; }
+.project-preview { display:block; width:100%; aspect-ratio:16/9; object-fit:contain; background:var(--dark); }
+.vertical-grid .project-preview { aspect-ratio:9/16; }
+.project-dialog { border:1px solid #ffffff50; background:var(--dark); color:var(--paper); width:min(94vw,60rem); max-height:94dvh; }
+.project-dialog::backdrop { background:#000c; }
+.project-dialog header { padding:0 0 .75rem; border:0; }
+.project-dialog h3 { margin:0; }
+.project-dialog video { display:block; width:100%; max-height:75dvh; background:#000; }
+@media (max-width:56rem) { .project-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:36rem) { .horizontal-grid { grid-template-columns:minmax(0,1fr); } }
 </style>
 <header><strong>Joel Poveda</strong><nav aria-label="Navegación principal"><a href="#proyectos">Proyectos</a><a href="#contacto">Contacto</a></nav></header>
 <main>
@@ -57,19 +70,65 @@ h1,h2,p{margin-top:0}h1,h2{line-height:.9;letter-spacing:-.075em;text-wrap:balan
 </section>
 <section class="work" id="proyectos">
 <h2>Proyectos seleccionados</h2>
-<article>
-  <div class="project-info">
-    <div>
-      <h3>Nancito</h3>
-      <p>Un recorrido audiovisual por Nancito, contado a través de sus paisajes.</p>
-    </div>
-    <a href="https://youtu.be/wYPWzoifPEU">Ver en YouTube</a>
+<p>Producción y postproducción a mi cargo, incluyendo edición, musicalización y colorización.</p>
+<div class="project-group">
+  <h3>Verticales</h3>
+  <div class="project-grid vertical-grid">
+    <article class="project-card">
+      <video class="project-preview" aria-hidden="true" src="./vertical-01.mp4#t=0.1" preload="metadata" muted playsinline></video>
+      <h4>El origen del «buen provecho»</h4>
+      <p>Reel sobre el origen de esta expresión.</p>
+      <a class="button project-play" href="./vertical-01.mp4" aria-label="Ver video completo: El origen del «buen provecho»">Ver video completo</a>
+    </article>
+    <article class="project-card">
+      <video class="project-preview" aria-hidden="true" src="./vertical-02.mp4#t=0.1" preload="metadata" muted playsinline></video>
+      <h4>Cómo hacer que tu celular vaya más rápido</h4>
+      <p>Reel con consejos para un celular lento.</p>
+      <a class="button project-play" href="./vertical-02.mp4" aria-label="Ver video completo: Cómo hacer que tu celular vaya más rápido">Ver video completo</a>
+    </article>
+    <article class="project-card">
+      <video class="project-preview" aria-hidden="true" src="./vertical-03.mp4#t=0.1" preload="metadata" muted playsinline></video>
+      <h4>Conexión</h4>
+      <p>Pieza de campaña para el libro Conexión.</p>
+      <a class="button project-play" href="./vertical-03.mp4" aria-label="Ver video completo: Conexión">Ver video completo</a>
+    </article>
+    <article class="project-card">
+      <video class="project-preview" aria-hidden="true" src="./vertical-04.mp4#t=0.1" preload="metadata" muted playsinline></video>
+      <h4>Cortometraje de terror</h4>
+      <p>Una pieza de ficción en formato vertical.</p>
+      <a class="button project-play" href="./vertical-04.mp4" aria-label="Ver video completo: Cortometraje de terror">Ver video completo</a>
+    </article>
   </div>
-  <div class="film" id="nancito-video">
-    <img src="https://i.ytimg.com/vi/wYPWzoifPEU/hqdefault.jpg" alt="" loading="lazy">
-    <button type="button" aria-label="Reproducir Nancito" hidden>Reproducir</button>
+</div>
+<div class="project-group">
+  <h3>Horizontales</h3>
+  <div class="project-grid horizontal-grid">
+    <article class="project-card">
+      <video class="project-preview" aria-hidden="true" src="./horizontal-01-compress.mp4#t=0.1" preload="metadata" muted playsinline></video>
+      <h4>Homocreativus</h4>
+      <p>Cortometraje sobre la vida de un creativo.</p>
+      <a class="button project-play" href="./horizontal-01-compress.mp4" aria-label="Ver video completo: Homocreativus">Ver video completo</a>
+    </article>
+    <article class="project-card">
+      <video class="project-preview" aria-hidden="true" src="./horizontal-02-compress.mp4#t=0.1" preload="metadata" muted playsinline></video>
+      <h4>El Nancito</h4>
+      <p>Pieza audiovisual sobre la comunidad de El Nancito, en Chiriquí.</p>
+      <a class="button project-play" href="./horizontal-02-compress.mp4" aria-label="Ver video completo: El Nancito">Ver video completo</a>
+    </article>
+    <article class="project-card">
+      <video class="project-preview" aria-hidden="true" src="./horizontal%2003.mp4#t=0.1" preload="metadata" muted playsinline></video>
+      <h4>Mensaje</h4>
+      <p>Una estudiante universitaria recibe un mensaje anónimo.</p>
+      <a class="button project-play" href="./horizontal%2003.mp4" aria-label="Ver video completo: Mensaje">Ver video completo</a>
+    </article>
+    <article class="project-card">
+      <video class="project-preview" aria-hidden="true" src="./horizontal-04-compress.mp4#t=0.1" preload="metadata" muted playsinline></video>
+      <h4>Campaña institucional del Club de Leones</h4>
+      <p>Video institucional de campaña del Club de Leones.</p>
+      <a class="button project-play" href="./horizontal-04-compress.mp4" aria-label="Ver video completo: Campaña institucional del Club de Leones">Ver video completo</a>
+    </article>
   </div>
-</article>
+</div>
 </section>
 <section class="contact" id="contacto"><h2>¿Ya tienes material grabado?</h2><p class="lead">Cuéntame qué quieres hacer con él.</p><div class="contact-links">
 <a class="button" href="https://wa.me/50762201069?text=Hola%2C%20Joel.%20Vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto.%20Te%20cuento%20lo%20que%20tengo%20en%20mente%3A">WhatsApp</a>
@@ -78,20 +137,54 @@ h1,h2,p{margin-top:0}h1,h2{line-height:.9;letter-spacing:-.075em;text-wrap:balan
 </div></section>
 </main>
 <footer><p>Joel Poveda · Panamá</p></footer>
+<dialog class="project-dialog" aria-labelledby="project-video-title">
+  <header><h3 id="project-video-title"></h3><form method="dialog"><button type="submit">Cerrar</button></form></header>
+  <video controls playsinline></video>
+</dialog>
 <script>
-const player = document.getElementById('nancito-video');
-const playButton = player.querySelector('button');
-playButton.hidden = false;
-playButton.addEventListener('click', () => {
-  const video = document.createElement('iframe');
-  video.title = 'Nancito en YouTube';
-  video.src = 'https://www.youtube-nocookie.com/embed/wYPWzoifPEU?autoplay=1&playsinline=1';
-  video.allow = 'autoplay; encrypted-media; picture-in-picture';
-  video.allowFullscreen = true;
-  video.referrerPolicy = 'strict-origin-when-cross-origin';
-  player.append(video);
-  player.classList.add('playing');
-  video.focus();
-}, { once: true });
+const dialog = document.querySelector('.project-dialog');
+const fullVideo = dialog.querySelector('video');
+const previewAllowed = matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
+let activePreview;
+
+function stopPreview(video = activePreview) {
+  if (!video) return;
+  video.pause();
+  if (video.readyState) video.currentTime = 0.1;
+  if (video === activePreview) activePreview = undefined;
+}
+
+for (const card of document.querySelectorAll('.project-card')) {
+  const preview = card.querySelector('video');
+  const link = card.querySelector('.project-play');
+
+  card.addEventListener('pointerenter', (event) => {
+    if (!previewAllowed.matches || event.pointerType !== 'mouse' || dialog.open) return;
+    stopPreview();
+    activePreview = preview;
+    preview.play().catch(() => {});
+  });
+  card.addEventListener('pointerleave', () => stopPreview(preview));
+  preview.addEventListener('timeupdate', () => {
+    if (preview === activePreview && preview.currentTime >= 5.1) preview.pause();
+  });
+
+  link.addEventListener('click', (event) => {
+    if (!dialog.showModal || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    stopPreview();
+    dialog.querySelector('h3').textContent = card.querySelector('h4').textContent;
+    fullVideo.src = link.href;
+    dialog.showModal();
+    fullVideo.play().catch(() => {});
+  });
+}
+
+previewAllowed.addEventListener('change', () => stopPreview());
+dialog.addEventListener('close', () => {
+  fullVideo.pause();
+  fullVideo.removeAttribute('src');
+  fullVideo.load();
+});
 </script>
 </html>
