@@ -50,7 +50,7 @@ h1,h2,p{margin-top:0}h1,h2{line-height:.9;letter-spacing:-.075em;text-wrap:balan
 .preview-toggle { position:absolute; inset:50% auto auto 50%; transform:translate(-50%,-50%); width:3.25rem; height:3.25rem; padding:0; border-radius:50%; }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .preview-toggle { opacity:0; }
-  .preview-wrap:hover .preview-toggle, .preview-toggle:focus-visible { opacity:1; }
+  .preview-toggle:focus-visible { opacity:1; }
 }
 .vertical-grid .project-preview { aspect-ratio:9/16; }
 .project-dialog { border:1px solid #ffffff50; background:var(--dark); color:var(--paper); width:min(94vw,60rem); max-height:94dvh; }
@@ -215,7 +215,9 @@ for (const card of document.querySelectorAll('.project-card')) {
     activePreview = preview;
     preview.play().catch(() => {});
   });
-  card.addEventListener('pointerleave', () => stopPreview(preview));
+  card.addEventListener('pointerleave', (event) => {
+    if (event.pointerType === 'mouse') stopPreview(preview);
+  });
   preview.addEventListener('timeupdate', () => {
     if (preview === activePreview && preview.currentTime >= 5.1) stopPreview(preview);
   });
