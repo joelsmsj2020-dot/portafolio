@@ -46,6 +46,12 @@ h1,h2,p{margin-top:0}h1,h2{line-height:.9;letter-spacing:-.075em;text-wrap:balan
 .project-card p { margin-bottom:1rem; }
 .project-card .button { margin-top:auto; padding:.65rem .85rem; }
 .project-preview { display:block; width:100%; aspect-ratio:16/9; object-fit:contain; background:var(--dark); }
+.preview-wrap { position:relative; }
+.preview-toggle { position:absolute; inset:50% auto auto 50%; transform:translate(-50%,-50%); width:3.25rem; height:3.25rem; padding:0; border-radius:50%; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .preview-toggle { opacity:0; }
+  .preview-wrap:hover .preview-toggle, .preview-toggle:focus-visible { opacity:1; }
+}
 .vertical-grid .project-preview { aspect-ratio:9/16; }
 .project-dialog { border:1px solid #ffffff50; background:var(--dark); color:var(--paper); width:min(94vw,60rem); max-height:94dvh; }
 .project-dialog::backdrop { background:#000c; }
@@ -75,25 +81,37 @@ h1,h2,p{margin-top:0}h1,h2{line-height:.9;letter-spacing:-.075em;text-wrap:balan
   <h3>Verticales</h3>
   <div class="project-grid vertical-grid">
     <article class="project-card">
-      <video class="project-preview" aria-hidden="true" src="./vertical-01.mp4#t=0.1" preload="metadata" muted playsinline></video>
+      <div class="preview-wrap">
+        <video class="project-preview" aria-hidden="true" src="./vertical-01.mp4#t=0.1" preload="metadata" muted playsinline></video>
+        <button class="preview-toggle" type="button" aria-label="Reproducir vista previa">▶</button>
+      </div>
       <h4>El origen del «buen provecho»</h4>
       <p>Reel sobre el origen de esta expresión.</p>
       <a class="button project-play" href="./vertical-01.mp4" aria-label="Ver video completo: El origen del «buen provecho»">Ver video completo</a>
     </article>
     <article class="project-card">
-      <video class="project-preview" aria-hidden="true" src="./vertical-02.mp4#t=0.1" preload="metadata" muted playsinline></video>
+      <div class="preview-wrap">
+        <video class="project-preview" aria-hidden="true" src="./vertical-02.mp4#t=0.1" preload="metadata" muted playsinline></video>
+        <button class="preview-toggle" type="button" aria-label="Reproducir vista previa">▶</button>
+      </div>
       <h4>Cómo hacer que tu celular vaya más rápido</h4>
       <p>Reel con consejos para un celular lento.</p>
       <a class="button project-play" href="./vertical-02.mp4" aria-label="Ver video completo: Cómo hacer que tu celular vaya más rápido">Ver video completo</a>
     </article>
     <article class="project-card">
-      <video class="project-preview" aria-hidden="true" src="./vertical-03.mp4#t=0.1" preload="metadata" muted playsinline></video>
+      <div class="preview-wrap">
+        <video class="project-preview" aria-hidden="true" src="./vertical-03.mp4#t=0.1" preload="metadata" muted playsinline></video>
+        <button class="preview-toggle" type="button" aria-label="Reproducir vista previa">▶</button>
+      </div>
       <h4>Conexión</h4>
       <p>Pieza de campaña para el libro Conexión.</p>
       <a class="button project-play" href="./vertical-03.mp4" aria-label="Ver video completo: Conexión">Ver video completo</a>
     </article>
     <article class="project-card">
-      <video class="project-preview" aria-hidden="true" src="./vertical-04.mp4#t=0.1" preload="metadata" muted playsinline></video>
+      <div class="preview-wrap">
+        <video class="project-preview" aria-hidden="true" src="./vertical-04.mp4#t=0.1" preload="metadata" muted playsinline></video>
+        <button class="preview-toggle" type="button" aria-label="Reproducir vista previa">▶</button>
+      </div>
       <h4>Cortometraje de terror</h4>
       <p>Una pieza de ficción en formato vertical.</p>
       <a class="button project-play" href="./vertical-04.mp4" aria-label="Ver video completo: Cortometraje de terror">Ver video completo</a>
@@ -104,25 +122,37 @@ h1,h2,p{margin-top:0}h1,h2{line-height:.9;letter-spacing:-.075em;text-wrap:balan
   <h3>Horizontales</h3>
   <div class="project-grid horizontal-grid">
     <article class="project-card">
-      <video class="project-preview" aria-hidden="true" src="./horizontal-01-compress.mp4#t=0.1" preload="metadata" muted playsinline></video>
+      <div class="preview-wrap">
+        <video class="project-preview" aria-hidden="true" src="./horizontal-01-compress.mp4#t=0.1" preload="metadata" muted playsinline></video>
+        <button class="preview-toggle" type="button" aria-label="Reproducir vista previa">▶</button>
+      </div>
       <h4>Homocreativus</h4>
       <p>Cortometraje sobre la vida de un creativo.</p>
       <a class="button project-play" href="./horizontal-01-compress.mp4" aria-label="Ver video completo: Homocreativus">Ver video completo</a>
     </article>
     <article class="project-card">
-      <video class="project-preview" aria-hidden="true" src="./horizontal-02-compress.mp4#t=0.1" preload="metadata" muted playsinline></video>
+      <div class="preview-wrap">
+        <video class="project-preview" aria-hidden="true" src="./horizontal-02-compress.mp4#t=0.1" preload="metadata" muted playsinline></video>
+        <button class="preview-toggle" type="button" aria-label="Reproducir vista previa">▶</button>
+      </div>
       <h4>El Nancito</h4>
       <p>Pieza audiovisual sobre la comunidad de El Nancito, en Chiriquí.</p>
       <a class="button project-play" href="./horizontal-02-compress.mp4" aria-label="Ver video completo: El Nancito">Ver video completo</a>
     </article>
     <article class="project-card">
-      <video class="project-preview" aria-hidden="true" src="./horizontal%2003.mp4#t=0.1" preload="metadata" muted playsinline></video>
+      <div class="preview-wrap">
+        <video class="project-preview" aria-hidden="true" src="./horizontal%2003.mp4#t=0.1" preload="metadata" muted playsinline></video>
+        <button class="preview-toggle" type="button" aria-label="Reproducir vista previa">▶</button>
+      </div>
       <h4>Mensaje</h4>
       <p>Una estudiante universitaria recibe un mensaje anónimo.</p>
       <a class="button project-play" href="./horizontal%2003.mp4" aria-label="Ver video completo: Mensaje">Ver video completo</a>
     </article>
     <article class="project-card">
-      <video class="project-preview" aria-hidden="true" src="./horizontal-04-compress.mp4#t=0.1" preload="metadata" muted playsinline></video>
+      <div class="preview-wrap">
+        <video class="project-preview" aria-hidden="true" src="./horizontal-04-compress.mp4#t=0.1" preload="metadata" muted playsinline></video>
+        <button class="preview-toggle" type="button" aria-label="Reproducir vista previa">▶</button>
+      </div>
       <h4>Campaña institucional del Club de Leones</h4>
       <p>Video institucional de campaña del Club de Leones.</p>
       <a class="button project-play" href="./horizontal-04-compress.mp4" aria-label="Ver video completo: Campaña institucional del Club de Leones">Ver video completo</a>
@@ -157,6 +187,27 @@ function stopPreview(video = activePreview) {
 for (const card of document.querySelectorAll('.project-card')) {
   const preview = card.querySelector('video');
   const link = card.querySelector('.project-play');
+  const toggle = card.querySelector('.preview-toggle');
+  const title = card.querySelector('h4').textContent;
+
+  function updateToggle() {
+    toggle.textContent = preview.paused ? '▶' : 'Ⅱ';
+    toggle.setAttribute('aria-label', (preview.paused ? 'Reproducir' : 'Pausar') + ' vista previa: ' + title);
+  }
+
+  updateToggle();
+  preview.addEventListener('play', updateToggle);
+  preview.addEventListener('pause', updateToggle);
+  preview.addEventListener('ended', updateToggle);
+  toggle.addEventListener('click', () => {
+    if (!preview.paused) {
+      stopPreview(preview);
+      return;
+    }
+    stopPreview();
+    activePreview = preview;
+    preview.play().catch(() => stopPreview(preview));
+  });
 
   card.addEventListener('pointerenter', (event) => {
     if (!previewAllowed.matches || event.pointerType !== 'mouse' || dialog.open) return;
@@ -166,7 +217,7 @@ for (const card of document.querySelectorAll('.project-card')) {
   });
   card.addEventListener('pointerleave', () => stopPreview(preview));
   preview.addEventListener('timeupdate', () => {
-    if (preview === activePreview && preview.currentTime >= 5.1) preview.pause();
+    if (preview === activePreview && preview.currentTime >= 5.1) stopPreview(preview);
   });
 
   link.addEventListener('click', (event) => {
