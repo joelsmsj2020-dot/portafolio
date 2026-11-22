@@ -169,11 +169,15 @@ h1,h2,p{margin-top:0}h1,h2{line-height:.9;letter-spacing:-.075em;text-wrap:balan
 <footer><p>Joel Poveda · Panamá</p></footer>
 <dialog class="project-dialog" aria-labelledby="project-video-title">
   <header><h3 id="project-video-title"></h3><form method="dialog"><button type="submit">Cerrar</button></form></header>
-  <video controls playsinline></video>
+  <video controls controlslist="nodownload" playsinline></video>
 </dialog>
 <script>
 const dialog = document.querySelector('.project-dialog');
 const fullVideo = dialog.querySelector('video');
+
+for (const video of document.querySelectorAll('video')) {
+  video.addEventListener('contextmenu', (event) => event.preventDefault());
+}
 const previewAllowed = matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
 let activePreview;
 
